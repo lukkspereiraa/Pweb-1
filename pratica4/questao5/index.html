@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Questão 5 - Análise de Espécies</title>
+    <link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+    <h1>Análise de Espécies Observadas</h1>
+
+    <form action="processa.php" method="POST">
+        <h2>Registro de Observações</h2>
+
+        <div class="form-group">
+            <label for="lista_especies">Digite as espécies observadas (uma por linha):</label>
+            <textarea name="lista_especies" id="lista_especies" rows="6" required>Beija-flor
+Canário
+Bem-te-vi
+Sabiá
+Beija-flor
+Coruja</textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="especie_verificar">Espécie a ser verificada na lista:</label>
+            <input type="text" name="especie_verificar" id="especie_verificar" value="Pardal" required>
+        </div>
+
+        <button type="submit" class="submit-btn">Analisar Lista</button>
+    </form>
+</body>
+</html>
