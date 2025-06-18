@@ -13,49 +13,47 @@ form {
     border-radius: 5px;
 }
 
-.produto-item {
-    display: flex;
-    gap: 10px;
-    margin-bottom: 10px;
+.form-group {
+    margin-bottom: 15px;
 }
 
-.produto-item input[type="text"] {
-    flex-grow: 2; /* Nome do produto ocupa mais espaço */
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
 }
 
-.produto-item input[type="number"] {
-    flex-grow: 1;
-}
-
-.produto-item input,
-.produto-item button {
+.form-group input,
+.form-group textarea {
+    width: 100%;
     padding: 8px;
     border: 1px solid #ccc;
+    box-sizing: border-box; 
 }
 
-button {
+button.submit-btn {
     cursor: pointer;
+    padding: 10px 15px;
+    border: none;
     color: white;
     border-radius: 3px;
-    border: 1px solid transparent;
+    background-color: #28a745;
+    margin-top: 10px;
 }
-
-.add-btn { background-color: #007bff; }
-.remove-btn { background-color: #dc3545; }
-.submit-btn { background-color: #28a745; margin-top: 10px; padding: 10px 15px; }
 
 .resultado-etapa {
     margin-top: 20px;
 }
 
-.lista-produtos {
+.lista-itens {
     background-color: #f8f9fa;
     border: 1px solid #e9ecef;
     padding: 15px;
     border-radius: 3px;
+    word-wrap: break-word;
 }
 
-.lista-produtos ul {
+.lista-itens ul {
     padding-left: 20px;
     margin: 0;
 }

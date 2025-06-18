@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Questão 8 - Embaralhador de Listas</title>
+    <link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+    <h1>Embaralhador de Listas</h1>
+
+    <form action="processa.php" method="POST">
+        <h2>Insira os Itens para Embaralhar</h2>
+
+        <div class="form-group">
+            <label for="lista_itens">Itens da lista (um por linha):</label>
+            <textarea name="lista_itens" id="lista_itens" rows="8" required>Ás de Espadas
+2 de Espadas
+Rei de Copas
+Dama de Copas
+10 de Ouros
+9 de Ouros
+Ás de Paus
+Rei de Paus</textarea>
+        </div>
+
+        <button type="submit" class="submit-btn">Embaralhar</button>
+    </form>
+</body>
+</html>

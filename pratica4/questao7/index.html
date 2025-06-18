@@ -2,25 +2,46 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <title>Questão 6 - Ordenador de Listas</title>
+    <title>Questão 7 - Ordenador de Preços</title>
     <link rel="stylesheet" href="estilo.css">
 </head>
 <body>
-    <h1>Ordenador de Listas</h1>
+    <h1>Ordenador de Preços de Produtos</h1>
 
     <form action="processa.php" method="POST">
-        <h2>Insira os Itens</h2>
-
-        <div class="form-group">
-            <label for="lista_itens">Digite os itens da lista (um por linha):</label>
-            <textarea name="lista_itens" id="lista_itens" rows="6" required>Eletrônicos
-Roupas
-Livros
-Brinquedos
-Beleza</textarea>
+        <h2>Insira os Produtos e Preços</h2>
+        <div id="produtos-container">
+            <div class="produto-item">
+                <input type="text" name="produtos[]" placeholder="Nome do Produto" required>
+                <input type="number" name="precos[]" placeholder="Preço (ex: 21.90)" min="0" step="0.01" required>
+                <button type="button" class="remove-btn" onclick="removerItem(this)">Remover</button>
+            </div>
         </div>
-
-        <button type="submit" class="submit-btn">Ordenar Lista</button>
+        <button type="button" class="add-btn" onclick="adicionarItem()">Adicionar Produto</button>
+        <br>
+        <button type="submit" class="submit-btn">Ordenar por Preço</button>
     </form>
+
+    <script>
+        function adicionarItem() {
+            const container = document.getElementById('produtos-container');
+            const novoItem = document.createElement('div');
+            novoItem.className = 'produto-item';
+            novoItem.innerHTML = `
+                <input type="text" name="produtos[]" placeholder="Nome do Produto" required>
+                <input type="number" name="precos[]" placeholder="Preço (ex: 21.90)" min="0" step="0.01" required>
+                <button type="button" class="remove-btn" onclick="removerItem(this)">Remover</button>
+            `;
+            container.appendChild(novoItem);
+        }
+
+        function removerItem(button) {
+            if (document.querySelectorAll('.produto-item').length > 1) {
+                button.parentElement.remove();
+            } else {
+                alert('Pelo menos um produto deve ser informado.');
+            }
+        }
+    </script>
 </body>
 </html>
