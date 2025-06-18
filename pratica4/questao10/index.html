@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Questão 10 - Lista de Participantes Únicos</title>
+    <link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+    <h1>Filtro de Participantes Únicos</h1>
+
+    <form action="processa.php" method="POST">
+        <h2>Insira a Lista de Presença</h2>
+
+        <div class="form-group">
+            <label for="lista_participantes">Nomes dos participantes (um por linha):</label>
+            <textarea name="lista_participantes" id="lista_participantes" rows="8" required>Carlos
+Ana
+João
+Maria
+João
+Pedro
+Maria
+Ana</textarea>
+        </div>
+
+        <button type="submit" class="submit-btn">Gerar Lista de Únicos</button>
+    </form>
+</body>
+</html>
