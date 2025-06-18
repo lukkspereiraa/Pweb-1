@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Questão 11 - Max e Min de Temperaturas</title>
+    <link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+    <h1>Analisador de Temperaturas</h1>
+
+    <form action="processa.php" method="POST">
+        <h2>Insira as Temperaturas</h2>
+
+        <div class="form-group">
+            <label for="lista_temperaturas">Temperaturas registradas (separadas por vírgula):</label>
+            <input type="text" name="lista_temperaturas" id="lista_temperaturas" required value="22.5, 19.8, 25.1, 18.6, 21.9, 24.3, 20.0">
+        </div>
+
+        <button type="submit" class="submit-btn">Analisar</button>
+    </form>
+</body>
+</html>
