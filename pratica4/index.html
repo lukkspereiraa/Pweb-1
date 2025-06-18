@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Questão 3 - Manipulação de Lista de Livros</title>
+    <link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+    <h1>Manipulando uma Lista de Livros</h1>
+
+    <form action="processa.php" method="POST">
+        <h2>Gerenciador de Biblioteca</h2>
+
+        <div class="form-group">
+            <label for="lista_livros">Digite a lista de livros inicial (um por linha):</label>
+            <textarea name="lista_livros" id="lista_livros" rows="5" required>Dom Casmurro
+O Pequeno Príncipe
+1984
+A Revolução dos Bichos
+Capitães da Areia</textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="livro_adicionar">Livro a ser adicionado ao final da lista:</label>
+            <input type="text" name="livro_adicionar" id="livro_adicionar" value="Harry Potter e a Pedra Filosofal">
+        </div>
+
+        <div class="form-group">
+            <label for="indice_remover">Posição do livro a ser removido (ex: 3 para remover o terceiro livro):</label>
+            <input type="number" name="indice_remover" id="indice_remover" min="1" value="3">
+        </div>
+
+        <button type="submit" class="submit-btn">Processar Lista</button>
+    </form>
+</body>
+</html>
