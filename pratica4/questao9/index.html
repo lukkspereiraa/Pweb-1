@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Questão 9 - Consolidador de Listas</title>
+    <link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+    <h1>Consolidador de Listas</h1>
+
+    <form action="processa.php" method="POST">
+        <h2>Insira as Duas Listas</h2>
+
+        <div class="form-group">
+            <label for="lista_a">Itens da Primeira Lista (um por linha):</label>
+            <textarea name="lista_a" id="lista_a" rows="5" required>101
+105
+102</textarea>
+        </div>
+        
+        <div class="form-group">
+            <label for="lista_b">Itens da Segunda Lista (um por linha):</label>
+            <textarea name="lista_b" id="lista_b" rows="5" required>103
+101
+106</textarea>
+        </div>
+
+        <button type="submit" class="submit-btn">Consolidar Listas</button>
+    </form>
+</body>
+</html>
