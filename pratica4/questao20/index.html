@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Questão 20 - Gerenciador de Inventário</title>
+    <link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+    <h1>Gerenciador de Inventário</h1>
+
+    <form action="processa.php" method="POST">
+        <h2>Estado Atual do Inventário</h2>
+        <div class="form-group">
+            <label for="inventario_inicial">Inventário inicial (formato: produto:quantidade, um por linha):</label>
+            <textarea name="inventario_inicial" id="inventario_inicial" rows="5" required>notebook:20
+mouse:50
+teclado:30</textarea>
+        </div>
+
+        <fieldset>
+            <legend>Adicionar ao Estoque</legend>
+            <div class="form-group">
+                <label for="produto_atualizar">Produto a ser adicionado/atualizado:</label>
+                <input type="text" name="produto_atualizar" id="produto_atualizar" value="notebook">
+            </div>
+            <div class="form-group">
+                <label for="quantidade_adicionar">Quantidade a ser adicionada:</label>
+                <input type="number" name="quantidade_adicionar" id="quantidade_adicionar" min="0" value="5">
+            </div>
+        </fieldset>
+        
+        <fieldset>
+            <legend>Novo Item (se não existir)</legend>
+             <div class="form-group">
+                <label for="produto_novo">Produto novo:</label>
+                <input type="text" name="produto_novo" id="produto_novo" value="monitor">
+            </div>
+            <div class="form-group">
+                <label for="quantidade_novo">Quantidade inicial:</label>
+                <input type="number" name="quantidade_novo" id="quantidade_novo" min="0" value="15">
+            </div>
+        </fieldset>
+
+        <button type="submit" class="submit-btn">Atualizar Inventário</button>
+    </form>
+</body>
+</html>

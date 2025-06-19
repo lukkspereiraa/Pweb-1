@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Questão 16 - Juntador de Itens</title>
+    <link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+    <h1>Juntador de Itens (Implode)</h1>
+
+    <form action="processa.php" method="POST">
+        <h2>Insira os Itens</h2>
+
+        <div class="form-group">
+            <label for="lista_itens">Caracteres ou itens (separados por vírgula):</label>
+            <input type="text" name="lista_itens" id="lista_itens" required value="a, b, c, 1, 2, 3, @, #, $, X, Y, Z">
+        </div>
+        
+        <div class="form-group">
+            <label for="separador">Caractere de junção (deixe em branco para nenhum):</label>
+            <input type="text" name="separador" id="separador" maxlength="1">
+        </div>
+
+        <button type="submit" class="submit-btn">Juntar Itens</button>
+    </form>
+</body>
+</html>

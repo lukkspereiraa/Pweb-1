@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Questão 13 - Calculadora de Média</title>
+    <link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+    <h1>Calculadora de Média de Despesas</h1>
+
+    <form action="processa.php" method="POST">
+        <h2>Insira os Valores</h2>
+
+        <div class="form-group">
+            <label for="lista_valores">Valores das despesas (separados por vírgula):</label>
+            <input type="text" name="lista_valores" id="lista_valores" required value="1200.50, 850.75, 1500.00, 920.30, 1100.20">
+        </div>
+
+        <button type="submit" class="submit-btn">Calcular Média</button>
+    </form>
+</body>
+</html>

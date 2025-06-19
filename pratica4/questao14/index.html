@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Questão 14 - Média de Desempenho</title>
+    <link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+    <h1>Calculadora de Média de Desempenho</h1>
+
+    <form action="processa.php" method="POST">
+        <h2>Insira os Registros de Treino</h2>
+        <div id="alunos-container">
+            <div class="aluno-item">
+                <input type="text" name="nomes[]" placeholder="Nome do Aluno" required>
+                <input type="text" name="resultados[]" placeholder="Resultados separados por vírgula (ex: 50, 60, 55)" required>
+                <button type="button" class="remove-btn" onclick="removerItem(this)">Remover</button>
+            </div>
+        </div>
+        <button type="button" class="add-btn" onclick="adicionarItem()">Adicionar Aluno</button>
+        <br>
+        <button type="submit" class="submit-btn">Calcular Médias</button>
+    </form>
+
+    <script>
+        function adicionarItem() {
+            const container = document.getElementById('alunos-container');
+            const novoItem = document.createElement('div');
+            novoItem.className = 'aluno-item';
+            novoItem.innerHTML = `
+                <input type="text" name="nomes[]" placeholder="Nome do Aluno" required>
+                <input type="text" name="resultados[]" placeholder="Resultados separados por vírgula (ex: 50, 60, 55)" required>
+                <button type="button" class="remove-btn" onclick="removerItem(this)">Remover</button>
+            `;
+            container.appendChild(novoItem);
+        }
+
+        function removerItem(button) {
+            if (document.querySelectorAll('.aluno-item').length > 1) {
+                button.parentElement.remove();
+            } else {
+                alert('Pelo menos um aluno deve ser informado.');
+            }
+        }
+    </script>
+</body>
+</html>

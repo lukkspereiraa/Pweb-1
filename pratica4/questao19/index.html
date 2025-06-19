@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Questão 19 - Fila de Atendimento</title>
+    <link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+    <h1>Gerenciador de Fila de Atendimento</h1>
+
+    <form action="processa.php" method="POST">
+        <h2>Definir Fila</h2>
+
+        <div class="form-group">
+            <label for="fila_inicial">Fila de atendimento atual (um paciente por linha):</label>
+            <textarea name="fila_inicial" id="fila_inicial" rows="4" required>João Silva
+Maria Santos
+Pedro Costa</textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="paciente_prioritario">Adicionar paciente prioritário (início da fila):</label>
+            <input type="text" name="paciente_prioritario" id="paciente_prioritario" value="Ana Oliveira">
+        </div>
+
+        <div class="form-group">
+            <label for="paciente_regular">Adicionar paciente regular (fim da fila):</label>
+            <input type="text" name="paciente_regular" id="paciente_regular" value="Luiz Fernandes">
+        </div>
+
+        <button type="submit" class="submit-btn">Atualizar Fila</button>
+    </form>
+</body>
+</html>
