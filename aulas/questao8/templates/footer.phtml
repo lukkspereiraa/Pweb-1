@@ -1,0 +1,35 @@
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const openCartBtn = document.getElementById("open-cart-btn");
+        const closeCartBtn = document.getElementById("close-cart-btn");
+        const cartSidebar = document.getElementById("cart-sidebar");
+        const overlay = document.getElementById("overlay");
+        const body = document.body;
+
+        function openCart() {
+            cartSidebar.classList.add("open");
+            overlay.classList.add("open");
+            body.classList.add("no-scroll");
+        }
+
+        function closeCart() {
+            cartSidebar.classList.remove("open");
+            overlay.classList.remove("open");
+            body.classList.remove("no-scroll");
+            if (window.location.search.includes("cart=open")) {
+                history.replaceState(null, "", window.location.pathname);
+            }
+        }
+
+        openCartBtn.addEventListener("click", openCart);
+        closeCartBtn.addEventListener("click", closeCart);
+        overlay.addEventListener("click", closeCart);
+
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.get("cart") === "open") {
+            openCart();
+        }
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<table class="product-table">
+    <thead>
+        <tr><th>Produto</th><th>Preço</th><th>Ação</th></tr>
+    </thead>
+    <tbody>
+    <?php if (!empty($products)): ?>
+        <?php foreach ($products as $row): ?>
+            <tr>
+                <td><?= htmlspecialchars($row["Nome"]) ?></td>
+                <td>R$ <?= number_format($row["Preco"], 2, ',', '.') ?></td>
+                <td>
+                    <form action="carrinho.php" method="post">
+                        <input type="hidden" name="produto_id" value="<?= $row["ProdutoID"] ?>">
+                        <input type="hidden" name="produto_nome" value="<?= htmlspecialchars($row["Nome"]) ?>">
+                        <input type="hidden" name="produto_preco" value="<?= $row["Preco"] ?>">
+                        <button type="submit" name="add_to_cart">Adicionar</button>
+                    </form>
+                </td>
+            </tr>
+        <?php endforeach; ?>
+    <?php else: ?>
+        <tr><td colspan="3">Nenhum produto encontrado</td></tr>
+    <?php endif; ?>
+    </tbody>
+</table>

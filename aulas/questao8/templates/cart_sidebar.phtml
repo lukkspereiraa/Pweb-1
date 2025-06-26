@@ -1,0 +1,49 @@
+<?php
+// Prepara as variáveis para usar no template
+$total_original = $cart_data['total_original'];
+$total_final = $cart_data['total_final'];
+$desconto_aplicado = $cart_data['desconto_aplicado'];
+$update_icon_svg = '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"></polyline><polyline points="1 20 1 14 7 14"></polyline><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path></svg>';
+?>
+</main> <aside id="cart-sidebar" class="cart-sidebar">
+    <div class="cart-header">
+        <h2>Meu Carrinho</h2>
+        <button id="close-cart-btn" title="Fechar Carrinho">&times;</button>
+    </div>
+    <div class="cart-content">
+        <?php if (!empty($cart_session)): ?>
+            <table class="cart-table"><tbody>
+            <?php foreach ($cart_session as $id => $produto): ?>
+                <tr>
+                    <td><?= htmlspecialchars($produto['nome']) ?><br><small>R$ <?= number_format($produto['preco'], 2, ',', '.') ?></small></td>
+                    <td>
+                        <form action="carrinho.php" method="post" class="cart-update-form">
+                            <input type="hidden" name="produto_id" value="<?= $id ?>">
+                            <input type="number" name="quantidade" value="<?= $produto['quantidade'] ?>" min="1" class="quantity-input">
+                            <button type="submit" name="update_cart" class="update-btn" title="Atualizar quantidade"><?= $update_icon_svg ?></button>
+                        </form>
+                    </td>
+                    <td>
+                        <form action="carrinho.php" method="post">
+                            <input type="hidden" name="produto_id" value="<?= $id ?>">
+                            <button type="submit" name="remove_from_cart" class="remove-btn">✖</button>
+                        </form>
+                    </td>
+                </tr>
+            <?php endforeach; ?>
+            </tbody></table>
+        <?php else: ?>
+            <p class="empty-cart-message">Seu carrinho está vazio.</p>
+        <?php endif; ?>
+    </div>
+    <?php if (!empty($cart_session)): ?>
+    <div class="cart-footer">
+        <div class="totals-row"><span>Subtotal</span><span>R$ <?= number_format($total_original, 2, ',', '.') ?></span></div>
+        <?php if ($desconto_aplicado > 0): ?>
+        <div class="totals-row discount-row"><span>Descontos</span><span>- R$ <?= number_format($desconto_aplicado, 2, ',', '.') ?></span></div>
+        <?php endif; ?>
+        <div class="totals-row total-row"><span>Total</span><span>R$ <?= number_format($total_final, 2, ',', '.') ?></span></div>
+        <form action="carrinho.php" method="post" style="margin-top: 15px;"><button type="submit" name="clear_cart" class="clear-btn">Limpar Carrinho</button></form>
+    </div>
+    <?php endif; ?>
+</aside>
