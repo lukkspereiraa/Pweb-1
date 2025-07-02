@@ -1,22 +1,26 @@
 <?php
-require_once 'conectbd.php';
 
-$slq = "SELECT * FROM Clientes";
-$result = mysqli_query($conexao, $slq);
+require_once('conexao.php');
 
-if (!$result)
-    die("Query failed: " . mysqli_error($conexao));
+// Lista os clientes existesntes
+$sql = "SELECT * FROM clientes";
+$result = mysqli_query($conexao, $sql);
 
-echo "<table>
+if (!$result) die("Erro na consulta: " . mysqli_error($conexao));
+
+// Exibe os clientes em tabela HTML
+$title = "Lista de Clientes";
+$content = "<table>
         <tr>
             <th>ID</th>
             <th>Nome</th>
             <th>Email</th>
             <th>Endereço</th>
-            <th>Data de nacimento</th>
+            <th>Data de Nascimento</th>
         </tr>";
+
 while ($row = mysqli_fetch_assoc($result)) {
-    echo "<tr>
+    $content .= "<tr>
             <td>{$row['id']}</td>
             <td>{$row['nome']}</td>
             <td>{$row['email']}</td>
@@ -25,5 +29,10 @@ while ($row = mysqli_fetch_assoc($result)) {
           </tr>";
 }
 
-echo "</table>";
-?>
+$content .= "</table>";
+
+// Carrega o template HTML
+require_once('template.php');
+
+// Fecha a conexão com o banco de dados
+mysqli_close($conexao);
